@@ -111,6 +111,7 @@ type ApiInstances struct {
 	webIntegrationsApiV2           *datadogV2.WebIntegrationsApi
 	webhooksIntegrationApiV2       *datadogV2.WebhooksIntegrationApi
 	tagRulesApiV2                  *datadogV2.TagRulesApi
+	jiraIntegrationApiV2           *datadogV2.JiraIntegrationApi
 }
 
 // GetAuthenticationApiV1 get instance of AuthenticationApi
@@ -876,4 +877,12 @@ func (i *ApiInstances) GetTagRulesApiV2() *datadogV2.TagRulesApi {
 		i.tagRulesApiV2 = datadogV2.NewTagRulesApi(i.HttpClient)
 	}
 	return i.tagRulesApiV2
+}
+
+// GetJiraIntegrationApiV2 get instance of JiraIntegrationApi
+func (i *ApiInstances) GetJiraIntegrationApiV2() *datadogV2.JiraIntegrationApi {
+	if i.jiraIntegrationApiV2 == nil {
+		i.jiraIntegrationApiV2 = datadogV2.NewJiraIntegrationApi(i.HttpClient)
+	}
+	return i.jiraIntegrationApiV2
 }
